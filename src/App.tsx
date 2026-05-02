@@ -494,6 +494,22 @@ function App() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-3xl font-mono font-bold text-center mb-12"
+          >
+            <span className="text-[#888]">// </span>
+            <span className="text-white">QUEST LOG</span>
+          </motion.h2>
+
+          <ExperienceTimeline />
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section id="stats" className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -584,21 +600,6 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-3xl font-mono font-bold text-center mb-12"
-          >
-            <span className="text-[#888]">// </span>
-            <span className="text-white">QUEST LOG</span>
-          </motion.h2>
-
-          <ExperienceTimeline />
-        </div>
-      </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-6 bg-[#0d0d15]">
