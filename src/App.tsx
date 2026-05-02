@@ -420,7 +420,7 @@ function App() {
               className="relative flex-shrink-0"
             >
               <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-[#1a1a2e] shadow-[0_0_40px_rgba(0,255,136,0.3)] transition-transform hover:scale-105 duration-300">
-                <img src="/photo.jpg" alt="Ayush Patel" className="w-full h-full object-cover" />
+                <img src="./photo.jpg" alt="Ayush Patel" className="w-full h-full object-cover" />
               </div>
               <div className="absolute bottom-2 right-2 bg-[#1a1a2e] border border-[#00ff88] rounded-full p-3 animate-bounce shadow-lg shadow-[#00ff88]/20">
                 <Code2 className="w-6 h-6 text-[#00ff88]" />
