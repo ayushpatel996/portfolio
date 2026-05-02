@@ -82,7 +82,7 @@ const ParticleBackground = () => {
 
 // Navigation Dots
 const NavigationDots = () => {
-  const sections = ['hero', 'stats', 'skills', 'achievements', 'experience', 'projects', 'contact'];
+  const sections = ['hero', 'experience', 'stats', 'skills', 'achievements', 'projects', 'contact'];
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
