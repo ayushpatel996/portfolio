@@ -162,16 +162,28 @@ const XPBar = () => {
 };
 
 // Stats Card Component
-const StatCard = ({ icon: Icon, value, label }: { icon: any; value: string; label: string }) => (
-  <motion.div
-    whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 255, 136, 0.3)' }}
-    className="bg-[#1a1a2e] border border-[#333] rounded-xl p-6 flex flex-col items-center gap-3 cursor-pointer transition-all duration-300"
-  >
-    <Icon className="w-8 h-8 text-[#00ff88]" />
-    <div className="text-3xl font-bold font-mono text-white">{value}</div>
-    <div className="text-sm text-[#888]">{label}</div>
-  </motion.div>
-);
+const StatCard = ({ icon: Icon, value, label, targetId }: { icon: any; value: string; label: string; targetId?: string }) => {
+  const handleClick = () => {
+    if (targetId) {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <motion.div
+      onClick={handleClick}
+      whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 255, 136, 0.3)' }}
+      className="bg-[#1a1a2e] border border-[#333] rounded-xl p-6 flex flex-col items-center gap-3 cursor-pointer transition-all duration-300 relative group"
+    >
+      <Icon className="w-8 h-8 text-[#00ff88]" />
+      <div className="text-3xl font-bold font-mono text-white">{value}</div>
+      <div className="text-sm text-[#888] flex items-center gap-1">
+        {label}
+        {targetId && <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#00ff88] -mr-5" />}
+      </div>
+    </motion.div>
+  );
+};
 
 // Skill Tree Component
 const SkillTree = () => {
@@ -523,10 +535,10 @@ function App() {
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCard icon={Briefcase} value="2" label="Companies" />
-            <StatCard icon={Code2} value="4+" label="Years Coding" />
-            <StatCard icon={Cpu} value="15+" label="Technologies" />
-            <StatCard icon={Award} value="5" label="Achievements" />
+            <StatCard icon={Briefcase} value="2" label="Companies" targetId="experience" />
+            <StatCard icon={Code2} value="4+" label="Years Coding" targetId="experience" />
+            <StatCard icon={Cpu} value="15+" label="Technologies" targetId="skills" />
+            <StatCard icon={Award} value="5" label="Achievements" targetId="achievements" />
           </div>
         </div>
       </section>
