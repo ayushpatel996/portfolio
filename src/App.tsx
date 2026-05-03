@@ -364,7 +364,7 @@ const ExperienceTimeline = () => {
 };
 
 // Project Card Component
-const ProjectCard = ({ title, description, tech, color }: { title: string; description: string; tech: string[]; color: string }) => (
+const ProjectCard = ({ title, description, tech, color, link }: { title: string; description: string; tech: string[]; color: string; link?: string }) => (
   <motion.div
     whileHover={{ scale: 1.02, y: -5 }}
     className="bg-[#1a1a2e] border border-[#333] rounded-xl overflow-hidden group hover:border-[#00ff88] transition-all duration-300"
@@ -374,7 +374,7 @@ const ProjectCard = ({ title, description, tech, color }: { title: string; descr
       <h3 className="font-mono font-bold text-xl text-white mb-3">{title}</h3>
       <p className="text-[#888] text-sm mb-4">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
-        {tech.map((t, i) => (
+        {tech.map((t) => (
           <span
             key={t}
             className="px-2 py-1 bg-[#0a0a0f] border border-[#333] rounded text-xs font-mono"
@@ -384,9 +384,20 @@ const ProjectCard = ({ title, description, tech, color }: { title: string; descr
           </span>
         ))}
       </div>
-      <button className="flex items-center gap-2 text-[#00ff88] text-sm font-mono group-hover:gap-3 transition-all">
-        View Project <ExternalLink className="w-4 h-4" />
-      </button>
+      {link ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-[#00ff88] text-sm font-mono group-hover:gap-3 transition-all hover:underline"
+        >
+          View Project <ExternalLink className="w-4 h-4" />
+        </a>
+      ) : (
+        <span className="flex items-center gap-2 text-[#555] text-sm font-mono">
+          View Project <ExternalLink className="w-4 h-4" />
+        </span>
+      )}
     </div>
   </motion.div>
 );
@@ -631,6 +642,7 @@ function App() {
               description="Collaborative music streaming platform with real-time voting-based playback control, integrating Spotify API."
               tech={['Django', 'REST APIs', 'Spotify API', 'WebSockets']}
               color="#00ff88"
+              link="https://phx2-app.onrender.com/"
             />
             <ProjectCard
               title="Financial Advisory Modernization"
