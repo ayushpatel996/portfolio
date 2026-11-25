@@ -17,6 +17,14 @@ module.exports = {
 		},
 		extend: {
 			colors: {
+				page: 'rgb(var(--page) / <alpha-value>)',
+				surface: 'rgb(var(--surface) / <alpha-value>)',
+				section: 'rgb(var(--section) / <alpha-value>)',
+				divider: 'rgb(var(--divider) / <alpha-value>)',
+				content: 'rgb(var(--content) / <alpha-value>)',
+				'secondary-text': 'rgb(var(--secondary-text) / <alpha-value>)',
+				'theme-accent': 'rgb(var(--theme-accent) / <alpha-value>)',
+				'on-accent': 'rgb(var(--on-accent) / <alpha-value>)',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

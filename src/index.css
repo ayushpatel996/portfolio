@@ -1,17 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #1a1a2e;
-  --accent-green: #00ff88;
-  --accent-orange: #ff6b35;
-  --accent-purple: #a855f7;
-  --text-primary: #e0e0e0;
-  --text-muted: #888888;
+  color-scheme: light;
+  --radius: 0.5rem;
+  --page: 236 238 231;
+  --surface: 247 248 243;
+  --section: 227 231 220;
+  --divider: 195 201 183;
+  --content: 37 44 35;
+  --secondary-text: 82 92 76;
+  --theme-accent: 72 86 56;
+  --on-accent: 247 248 243;
+}
+
+:root[data-theme='charcoal'] {
+  color-scheme: dark;
+  --page: 25 25 23;
+  --surface: 37 37 34;
+  --section: 31 31 28;
+  --divider: 72 70 62;
+  --content: 238 234 226;
+  --secondary-text: 184 177 164;
+  --theme-accent: 213 164 93;
+  --on-accent: 25 25 23;
 }
 
 * {
@@ -22,47 +37,27 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .transition-all,
+  .transition-colors,
+  .transition-opacity {
+    transition-duration: 0s;
+  }
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  overflow-x: hidden;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background-color: rgb(var(--page));
+  color: rgb(var(--content));
 }
 
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(0, 255, 136, 0.6); }
-}
-
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
