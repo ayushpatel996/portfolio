@@ -1,17 +1,17 @@
 # Gamified Developer Portfolio
 
-A highly interactive, gamified portfolio website built for **Ayush Patel**, Software Engineer 2. The design combines a sleek "Developer Terminal" aesthetic with engaging game-like elements such as an interactive skill tree, an XP progress bar, and unlockable achievements.
+A gamified portfolio website for **Ayush Patel**, Software Engineer 2. The design combines a developer terminal with a skill tree, an experience timeline, and achievement badges.
 
 ## ✨ Features
 
-- **Terminal Hero Section**: A realistic terminal intro with typing animations.
-- **Dynamic XP Bar**: A visual career progress tracker mapping the journey to Senior Engineer.
+- **Terminal Hero Section**: An engineering introduction, résumé link, and terminal-style shortcuts.
+- **Selected Work**: Project summaries, a link to the PHx2 demo, and the API performance result from Financial Advisory Modernization.
 - **Character Stats Panel**: RPG-style presentation of core metrics (Years of Experience, Technologies, Companies).
-- **Interactive Skill Tree**: A categorized visualization of technical skills with hover and glow effects.
-- **Achievement Badges**: Unlock-style icons for key career milestones and accomplishments.
+- **Skill Tree**: Technical skills grouped by specialty.
+- **Achievement Badges**: Icons for key career milestones and accomplishments.
 - **Quest Log (Experience)**: A vertical timeline of professional experience designed as a game quest.
 - **Responsive Design**: Fully optimized for both desktop and mobile views.
-- **Particle Background**: Subtle floating particles that enhance the visual depth.
+- **Light and Dark Modes**: The header button toggles between olive and charcoal and saves the selection in the browser.
 
 ## 🛠️ Technology Stack
 
