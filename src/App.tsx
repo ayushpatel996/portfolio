@@ -28,6 +28,7 @@ const sections = [
   { id: 'hero', label: 'About' },
   { id: 'projects', label: 'Selected work' },
   { id: 'experience', label: 'Experience' },
+  { id: 'certifications', label: 'Certifications' },
   { id: 'stats', label: 'Stats' },
   { id: 'skills', label: 'Skills' },
   { id: 'achievements', label: 'Achievements' },
@@ -349,17 +350,16 @@ function App() {
 
       <section id="hero" aria-labelledby="hero-title" className="px-6 pb-14 pt-12 sm:pb-20 sm:pt-20">
         <div className="mx-auto max-w-4xl">
-          <div className="grid items-center gap-9 md:grid-cols-[1.5fr_1fr] md:gap-12">
-            <div>
+          <div className="grid gap-9 md:grid-cols-[1.5fr_1fr] md:gap-12">
+            <div className="flex flex-col items-start">
               <p className="mb-3 text-base font-semibold text-theme-accent">Software Engineer 2 · Pune, India</p>
               <h1 id="hero-title" className="text-[clamp(2.25rem,8vw,4.5rem)] font-bold leading-tight tracking-tight text-content">
                 Ayush Patel
               </h1>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-content">
-                I build backend services with Java and Spring Boot. My work includes modernizing legacy systems into
-                event-driven microservices and improving API performance.
+                I build enterprise applications and modernize legacy systems, with a focus on distributed services and API performance.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
                 <a href="#projects" className="rounded-lg bg-theme-accent px-5 py-3 font-semibold text-on-accent transition-colors hover:bg-theme-accent/90">
                   View work
                 </a>
@@ -374,36 +374,58 @@ function App() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-divider bg-surface">
-              <div className="flex items-center gap-2 border-b border-divider bg-surface px-4 py-3">
-                <Terminal aria-hidden="true" className="size-4 text-secondary-text" />
-                <span className="font-mono text-xs text-secondary-text">ayush@portfolio</span>
+            <div className="grid min-w-0 gap-3 md:grid-rows-[auto_1fr]">
+              <div role="group" aria-label="Employers" className="grid grid-cols-2 gap-3">
+                <div className="grid h-16 min-w-0 place-items-center rounded-lg border border-divider bg-white px-3">
+                  <img
+                    src={import.meta.env.BASE_URL + 'hashedin-logo.png'}
+                    alt="HashedIn by Deloitte"
+                    width="400"
+                    height="129"
+                    className="h-9 w-full max-w-28 object-contain"
+                  />
+                </div>
+                <div className="grid h-16 min-w-0 place-items-center rounded-lg border border-divider bg-white px-3">
+                  <img
+                    src={import.meta.env.BASE_URL + 'infosys-logo.png'}
+                    alt="Infosys"
+                    width="330"
+                    height="132"
+                    className="h-8 w-full max-w-24 object-contain"
+                  />
+                </div>
               </div>
-              <div className="flex items-center gap-4 p-4">
-                <img
-                  src={import.meta.env.BASE_URL + 'photo.jpg'}
-                  alt="Ayush Patel"
-                  width="80"
-                  height="80"
-                  className="size-[4.5rem] shrink-0 rounded-lg border border-divider object-cover sm:size-20"
-                />
-                <nav aria-label="Terminal shortcuts" className="flex min-w-0 flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
-                  <a href="#experience" className="text-theme-accent hover:underline">$ experience</a>
-                  <a href="#skills" className="text-theme-accent hover:underline">$ skills</a>
-                  <a href="#contact" className="text-theme-accent hover:underline">$ contact</a>
-                </nav>
+              <div className="flex flex-col overflow-hidden rounded-xl border border-divider bg-surface">
+                <div className="flex items-center gap-2 border-b border-divider bg-surface px-4 py-3">
+                  <Terminal aria-hidden="true" className="size-4 text-secondary-text" />
+                  <span className="font-mono text-xs text-secondary-text">ayush@portfolio</span>
+                </div>
+                <div className="flex flex-1 items-center gap-4 p-4">
+                  <img
+                    src={import.meta.env.BASE_URL + 'photo.jpg'}
+                    alt="Ayush Patel"
+                    width="80"
+                    height="80"
+                    className="size-[4.5rem] shrink-0 rounded-lg border border-divider object-cover sm:size-20"
+                  />
+                  <nav aria-label="Terminal shortcuts" className="flex min-w-0 flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
+                    <a href="#experience" className="text-theme-accent hover:underline">$ experience</a>
+                    <a href="#skills" className="text-theme-accent hover:underline">$ skills</a>
+                    <a href="#contact" className="text-theme-accent hover:underline">$ contact</a>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
 
           <a
-            href="#financial-advisory"
-            className="group mt-8 flex w-full flex-col gap-x-5 gap-y-1 rounded-xl border border-theme-accent/25 bg-theme-accent/5 px-5 py-4 transition-colors hover:border-theme-accent/60 sm:mt-10 sm:flex-row sm:items-center"
+            href="#experience"
+            className="group mt-8 flex w-full flex-col gap-1 rounded-xl border border-theme-accent/25 bg-theme-accent/5 px-5 py-4 transition-colors hover:border-theme-accent/60 sm:mt-10"
           >
-            <span className="text-3xl font-bold tabular-nums text-theme-accent">{financialAdvisory.improvement}</span>
-            <span>
-              <span className="block text-content first-letter:uppercase">{financialAdvisory.resultDescription}</span>
-              <span className="text-sm text-secondary-text group-hover:underline">Financial Advisory Modernization</span>
+            <span className="text-xl font-bold text-theme-accent group-hover:underline">Backend engineering and AI development</span>
+            <span className="text-content">
+              My stack includes Java, Spring Boot, and Python, with Apache Kafka for event streaming and Redis for caching.
+              I also develop AI-powered features and integrations with Claude.
             </span>
           </a>
         </div>
@@ -451,6 +473,31 @@ function App() {
           </motion.h2>
 
           <ExperienceTimeline />
+        </div>
+      </section>
+
+      <section id="certifications" aria-labelledby="certifications-title" className="px-6 py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 id="certifications-title" className="mb-7 text-3xl font-bold">Certifications</h2>
+          <article className="flex flex-wrap items-center gap-x-4 gap-y-3 rounded-xl border border-divider bg-surface p-5 sm:flex-nowrap sm:p-6">
+            <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-theme-accent/10 text-theme-accent">
+              <Award aria-hidden="true" className="size-5" />
+            </span>
+            <div className="min-w-0 flex-1 basis-40">
+              <h3 className="text-lg font-bold">Claude Certified Developer - Foundations</h3>
+              <p className="mt-1 text-sm text-secondary-text">
+                Anthropic · Issued <time dateTime="2026-09-18">Sep 18, 2026</time> · Expires <time dateTime="2027-09-18">Sep 18, 2027</time>
+              </p>
+            </div>
+            <a
+              href="https://www.credly.com/badges/2a58f7b8-d828-4451-a1e6-4f57234330fa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border border-theme-accent/40 px-3 py-2 text-sm font-semibold text-theme-accent transition-colors hover:bg-theme-accent/10"
+            >
+              View credential <ExternalLink aria-hidden="true" className="size-4" />
+            </a>
+          </article>
         </div>
       </section>
 
