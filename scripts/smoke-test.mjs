@@ -38,6 +38,49 @@ try {
       assert.equal(await page.locator('html').getAttribute('data-theme'), 'charcoal');
       assert.equal(await page.locator('html').evaluate((html) => getComputedStyle(html).scrollBehavior), 'auto');
 
+      const terminalToggle = page.getByRole('button', { name: 'ayush@portfolio' });
+      await terminalToggle.click();
+      const terminal = page.getByRole('region', { name: 'Terminal console' });
+      const commandInput = terminal.getByRole('textbox', { name: 'Terminal command' });
+      const runCommand = async (command) => {
+        await commandInput.fill(command);
+        await commandInput.press('Enter');
+        return await terminal.getByRole('status').textContent();
+      };
+      assert.doesNotMatch(await runCommand('help'), /coffee|siu|cr7|ronaldo/i);
+      assert.match(await runCommand('whoami'), /Ayush Patel/);
+      const finalFrame = terminal.locator('pre').last();
+      assert.match(await runCommand('coffee'), /cup of coffee/);
+      assert.match(await finalFrame.textContent(), /----------/);
+      assert.equal(await finalFrame.evaluate((frame) => getComputedStyle(frame).opacity), '1');
+      assert.equal(await finalFrame.evaluate((frame) => frame.getAnimations().length), 0);
+      for (const alias of ['siu', ' SIUUU ', 'CR7', 'ronaldo']) {
+        assert.match(await runCommand(alias), /Cristiano Ronaldo/);
+        assert.match(await finalFrame.textContent(), /SIUUU!/);
+        assert.equal(await finalFrame.evaluate((frame) => getComputedStyle(frame).opacity), '1');
+        assert.equal(await finalFrame.evaluate((frame) => frame.getAnimations().length), 0);
+      }
+      if (width === 1440) {
+        await page.emulateMedia({ reducedMotion: 'no-preference' });
+        for (const command of ['siu', 'cr7', 'coffee', 'coffee']) {
+          await runCommand(command);
+          await finalFrame.evaluate(async (frame) => {
+            const [animation] = frame.getAnimations();
+            if (!animation || getComputedStyle(frame).opacity !== '0') {
+              throw new Error('The animation should replay before the final frame appears');
+            }
+            await animation.finished;
+          });
+          assert.equal(await finalFrame.evaluate((frame) => getComputedStyle(frame).opacity), '1');
+        }
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+      }
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width, 'Terminal output must fit the viewport');
+      assert.equal(await runCommand('clear'), '');
+      await commandInput.press('Escape');
+      assert.equal(await terminalToggle.getAttribute('aria-expanded'), 'false');
+      assert.ok(await terminalToggle.evaluate((button) => document.activeElement === button));
+
       const experience = page.getByRole('region', { name: 'Quest log' });
       const timelineItem = experience.locator('ol > li').first();
       assert.equal(await timelineItem.evaluate((item) => getComputedStyle(item).opacity), '1');
