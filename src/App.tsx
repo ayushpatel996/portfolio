@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import {
   Code2, Database, Cloud, Award,
-  Briefcase, Mail, Github, Linkedin, ExternalLink, Layers, Phone, Moon, Sun, Terminal,
+  Briefcase, Mail, Github, Linkedin, ExternalLink, Layers, Phone, Moon, Sun,
   type LucideIcon,
 } from 'lucide-react';
 import { ExperienceSection } from './components/ExperienceSection';
+import { HeroTerminal } from './components/HeroTerminal';
 import { ProjectsSection } from './components/ProjectsSection';
 import { experiences, projects } from './data/portfolio';
 
@@ -224,26 +225,7 @@ function App() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col overflow-hidden rounded-xl border border-divider bg-surface">
-                  <div className="flex items-center gap-2 border-b border-divider bg-surface px-4 py-3">
-                    <Terminal aria-hidden="true" className="size-4 text-secondary-text" />
-                    <span className="font-mono text-xs text-secondary-text">ayush@portfolio</span>
-                  </div>
-                  <div className="flex flex-1 items-center gap-4 p-4">
-                    <img
-                      src={import.meta.env.BASE_URL + 'photo.jpg'}
-                      alt="Ayush Patel"
-                      width="80"
-                      height="80"
-                      className="size-[4.5rem] shrink-0 rounded-lg border border-divider object-cover sm:size-20"
-                    />
-                    <nav aria-label="Terminal shortcuts" className="flex min-w-0 flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
-                      <a href="#experience" className="text-theme-accent hover:underline">$ experience</a>
-                      <a href="#skills" className="text-theme-accent hover:underline">$ skills</a>
-                      <a href="#contact" className="text-theme-accent hover:underline">$ contact</a>
-                    </nav>
-                  </div>
-                </div>
+                <HeroTerminal />
               </div>
             </div>
 
