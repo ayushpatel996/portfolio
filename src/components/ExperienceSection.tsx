@@ -10,7 +10,7 @@ export function ExperienceSection() {
       <div className="mx-auto max-w-4xl">
         <h2 id="experience-title" className="mb-12 text-center text-3xl font-bold">Quest log</h2>
         <ol className="relative space-y-12 pl-10 before:absolute before:inset-y-0 before:left-4 before:w-0.5 before:bg-divider md:pl-0 md:before:left-1/2">
-          {experiences.map(({ company, role, period, location, icon: Icon, outcome, details }, index) => (
+          {experiences.map(({ client, company, role, period, location, icon: Icon, tech, details }, index) => (
             <motion.li
               key={company}
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -21,15 +21,23 @@ export function ExperienceSection() {
               className="relative focus-within:!transform-none focus-within:!opacity-100 motion-reduce:!transform-none motion-reduce:!opacity-100 md:grid md:grid-cols-2"
             >
               <article className={`rounded-xl border border-divider bg-surface p-6 ${index % 2 === 0 ? 'md:mr-12' : 'md:col-start-2 md:ml-12'}`}>
-                <h3 className="mb-3 text-lg font-bold text-content">{role}</h3>
-                <div className="mb-4 flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-semibold text-theme-accent">{company}</span>
-                  <span className="text-sm text-secondary-text">{period}</span>
-                </div>
-                <p className="mb-4 flex items-center gap-1.5 text-sm text-secondary-text">
-                  <MapPin aria-hidden="true" className="size-4 shrink-0" /> {location}
+                <h3 className="mb-3 text-xl font-bold text-content">{client}</h3>
+                <ul aria-label="Technologies" className="mb-4 flex flex-wrap gap-2">
+                  {tech.map((technology) => (
+                    <li key={technology} className="rounded border border-divider bg-section px-2 py-1 font-mono text-xs text-content">
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mb-3 text-sm text-content">
+                  {role} · <span className="font-semibold text-theme-accent">{company}</span>
                 </p>
-                <p className="text-content">{outcome}</p>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-secondary-text">
+                  <span>{period}</span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin aria-hidden="true" className="size-4 shrink-0" /> {location}
+                  </span>
+                </div>
                 <details className="mt-4">
                   <summary className="w-fit cursor-pointer rounded-sm text-sm font-semibold text-theme-accent hover:underline">Engineering details</summary>
                   <ul className="mt-3 space-y-2">
