@@ -11,8 +11,9 @@ export const experiences = [
     icon: Zap,
     outcome: financialAdvisoryOutcome,
     details: [
-      'Led the migration of legacy financial workflows to microservices',
-      'Implemented Apache Kafka for event-driven architecture',
+      'Led the migration of legacy financial advisory workflows to Java and Spring Boot microservices',
+      'Used Apache Kafka for asynchronous communication between services',
+      'Built backend services for broker and advisor transactions, with a focus on reliable processing and data consistency',
       'Built and deployed services with Docker and Kubernetes',
     ],
   },
@@ -24,9 +25,11 @@ export const experiences = [
     icon: Shield,
     outcome: 'Reduced API latency by 20–25%',
     details: [
-      'Built backend services for a large-scale identity platform',
+      'Built Java and Spring Boot services and REST APIs for a large-scale enterprise identity platform',
+      'Automated user profile management with the Virtual Profile feature in Control Hub',
+      'Migrated legacy UCCX and CCP systems from 32-bit to 64-bit architecture to improve compatibility and scalability',
       'Led UI development for admin workflows',
-      'Diagnosed and resolved production incidents using the ELK stack during on-call rotations',
+      'Resolved production incidents using the ELK stack during on-call rotations and tracked incidents in ServiceNow',
     ],
   },
 ];
