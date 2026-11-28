@@ -1,76 +1,47 @@
-# Gamified Developer Portfolio
+# Ayush Patel · Developer Portfolio
 
-A gamified portfolio website for **Ayush Patel**, Software Engineer 2. The design combines a developer terminal with selected work, a skill tree, and an experience timeline.
+A personal portfolio for Ayush Patel, Software Engineer 2, covering backend engineering, distributed systems, and AI development.
 
-## ✨ Features
+[View the live portfolio](https://ayushpatel996.github.io/portfolio/)
 
-- **Terminal Hero Section**: An engineering introduction, résumé link, and terminal-style shortcuts.
-- **Selected Work**: Project summaries, a link to the PHx2 demo, and the API performance result from Financial Advisory Modernization.
-- **At a Glance**: Links to experience, projects, and skill areas with counts based on the portfolio content.
-- **Skill Tree**: Technical skills grouped by specialty.
-- **Quest Log (Experience)**: A timeline with outcomes and expandable details for each role.
-- **Responsive Design**: Fully optimized for both desktop and mobile views.
-- **Light and Dark Modes**: The header button toggles between olive and charcoal and saves the selection in the browser.
+## Explore the portfolio
 
-## 🛠️ Technology Stack
+- **Selected work** covers the PHx2 Music Player, financial advisory modernization, and an enterprise identity platform.
+- **Experience** highlights the technologies used on Edward Jones and Cisco projects, alongside the roles at HashedIn by Deloitte and Infosys. Expand **Engineering details** for contributions and outcomes.
+- **Certifications** includes the Anthropic Claude Certified Developer - Foundations credential and its Credly verification link.
+- **Interactive terminal** opens from `ayush@portfolio` in the hero. Run `help` to see the available commands. There are a few hidden animations to discover.
+- **Accessibility** includes keyboard navigation, mobile shortcuts, reduced-motion support, and a Light/Dark preference that persists across visits.
 
-- **Framework:** React + Vite
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
+## Run locally
 
-## 🚀 Getting Started
+The portfolio uses React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Lucide. CI uses Node.js 20.
 
-### Prerequisites
-
-Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/portfolio.git
-   cd portfolio
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:5173`.
-
-## 📦 Building for Production
-
-To create a production-ready build, run:
 ```bash
-npm run build
+git clone https://github.com/ayushpatel996/portfolio.git
+cd portfolio
+npm ci
+npm run dev
 ```
-The optimized files will be generated in the `dist` directory, which you can deploy to Vercel, Netlify, GitHub Pages, or any static hosting service.
 
-## Portfolio checks
+Open [localhost:5173](http://localhost:5173/).
 
-GitHub Actions builds the portfolio and runs a Chromium smoke test on pull requests to `main`. To run the same checks locally:
+## Build and test
 
 ```bash
-npx playwright install chromium
 npm run build
+npx playwright install chromium
 npm run test:smoke
 ```
 
-Set `PLAYWRIGHT_CHROMIUM_CHANNEL` to `msedge` or `chrome` to use an installed browser. Update the project and experience entries in `src/data/portfolio.ts`.
+The smoke test serves the production build under `/portfolio/` and checks mobile and desktop navigation, theme persistence, asset loading, and terminal interactions. Set `PLAYWRIGHT_CHROMIUM_CHANNEL` to `msedge` or `chrome` to use an installed browser.
 
-## 📫 Contact
+GitHub Actions runs the [build and smoke test](.github/workflows/check.yml) on pull requests to `main`. Pushes to `main` trigger the [GitHub Pages deployment](.github/workflows/deploy.yml).
 
-- **Email**: ayush.patel.996@gmail.com
-- **LinkedIn**: [https://www.linkedin.com/in/ayushpatel1312/](https://www.linkedin.com/in/ayushpatel1312/)
-- **GitHub**: [https://github.com/ayushpatel996](https://github.com/ayushpatel996)
+## Update the content
 
----
-*Designed & Built by Ayush Patel.*
+- Edit projects, experience, client names, and technology lists in [`src/data/portfolio.ts`](src/data/portfolio.ts).
+- Edit the hero, skill tree, certification, and contact sections in [`src/App.tsx`](src/App.tsx).
+
+## Contact
+
+[Email](mailto:ayush.patel.996@gmail.com) · [LinkedIn](https://www.linkedin.com/in/ayushpatel1312/) · [GitHub](https://github.com/ayushpatel996)
